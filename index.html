@@ -51,6 +51,17 @@
         .del-btn { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); color: #666; cursor: pointer; font-size: 1rem; background: none; border: none; }
     </style>
 </head>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('서비스 워커 등록 성공!', reg))
+        .catch(err => console.log('서비스 워커 등록 실패...', err));
+    });
+  }
+</script>
+    
 <body>
     <div class="container">
         <h2>DEEP WORK BLACKBOX</h2>
@@ -264,3 +275,4 @@
 </script>
 </body>
 </html>
+
