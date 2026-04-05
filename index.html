@@ -53,11 +53,12 @@
 </head>
 
 <script>
-  if ('serviceWorker' in navigator) {
+ if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
-        .then(reg => console.log('서비스 워커 등록 성공!', reg))
-        .catch(err => console.log('서비스 워커 등록 실패...', err));
+      // 1.2.1, 1.3.6: sw.js 파일 경로 설정에 따라 '/sw.js'를 수정하세요.
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('SW 등록 성공:', reg))
+        .catch(err => console.log('SW 등록 실패:', err));
     });
   }
 </script>
